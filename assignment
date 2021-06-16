@@ -55,25 +55,25 @@ public class SortingAlgorithm {
     static void bubleSort(int []arr, char order ){
        //make some modification here
        if(order == 'a')
-       for (int j=arr.length-1;j>0;j--){
-           for (int x=0;x<j;x++){
-               if (arr[x+1]<arr[x]){
-                   int temp=arr[x];
-                   arr[x]= arr[x+1];
-                   arr[x+1] = temp;
+       for (int i= 0; i<arr.length;i++){
+           for (int x=1;x<(arr.length-i);x++){
+               if (arr[x-1]>arr[x]){
+                   int temp = arr[x-1];
+                   arr[x-1] = arr[x];
+                   arr[x] = temp;
                }
            }
        }
        else if (order == 'd'){
-           for(int j = arr.length-1;j>0;j--){
-               for(int x = 0; x<j; x++){
-                   if(arr[x+1] > arr[x]){
-                       int temp = arr[x];
-                       arr[x] = arr[x+1];
-                       arr[x+1] = temp;
-                   }
+           for (int i= 0; i<arr.length;i++){
+           for (int x=1;x<(arr.length-i);x++){
+               if (arr[x-1] < arr[x]){
+                   int temp = arr[x-1];
+                   arr[x-1] = arr[x];
+                   arr[x] = temp;
                }
            }
+       }
        }
        
        //print out the array
@@ -88,7 +88,7 @@ public class SortingAlgorithm {
     static void selectionSort(int []arr, char order ){
        //make some modification here
        if(order == 'a'){
-           for(int i = 0; i <arr.length;i++){
+           for(int i = 0; i <=arr.length-1;i++){
                int p = i;
                for (int j = i+1; j< arr.length;j++){
                    if(arr[p] > arr[j]){
@@ -101,7 +101,7 @@ public class SortingAlgorithm {
            }
        }
        else if (order == 'd'){
-           for(int i = 0; i< arr.length; i++){
+           for(int i = 0; i<= arr.length-1; i++){
                int p = i;
                for(int j = i+1; j < arr.length; j++){
                    if (arr[p] < arr[j]){
@@ -128,9 +128,9 @@ public class SortingAlgorithm {
        int key;
        int j;
        if(order == 'a'){
-           for(int i = 1; i < arr.length; i++){
+           for(int i = 0; i < arr.length-1; i++){
                key = arr[i];
-               j = i - 1;
+               j = i;
                
                while (j>= 0 && arr[j] > key){
                    arr[j+1] = arr[i];
@@ -141,9 +141,9 @@ public class SortingAlgorithm {
        }
        
        else if(order == 'd'){
-           for(int i = 1; i< arr.length; i++){
+           for(int i = 0; i< arr.length-1; i++){
                key = arr[i];
-               j = i-1;
+               j = i;
                
                while( j>= 0 && arr[j] < key){
                    arr[j+1] = arr[j];
